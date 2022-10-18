@@ -1,0 +1,16 @@
+    5  mkdir /mnt/boot
+    6  amount /dev/nvme0n1p1 /mnt
+    7  mkfs.fat /F32 /dev/nvme0n1p1
+    8  mkfs.fat -F32 /dev/nvme0n1p1
+    9  loadkeys la-latin1
+   10  mount /dev/nvme0n1p1 /mnt/boot
+   11  umount /mnt/boot
+   12  mkfs.fat -F32 /dev/nvme0n1p1
+   13  mount /dev/nvme0n1p1 /mnt/boot
+   14  ls /mnt
+   15  iwctl
+   16  ping google.com
+   17  pacstrap -K /mnt base linux linux-firmware
+   18  genfstab -U /mnt
+   19  genfstab -U /mnt >> /mnt/etc/fstab
+   20  arch-chroot /mnt
